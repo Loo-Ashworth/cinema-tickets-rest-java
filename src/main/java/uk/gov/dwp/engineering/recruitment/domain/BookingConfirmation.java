@@ -1,5 +1,16 @@
 package uk.gov.dwp.engineering.recruitment.domain;
 
-public record BookingConfirmation(Long accountId) {
+import java.math.BigDecimal;
+import java.util.UUID;
 
+public record BookingConfirmation(
+        Long accountId,
+        BigDecimal totalPrice,
+        Long seatsRequired,
+        UUID bookingReference
+) {
+
+    public BookingConfirmation(Long accountId) {
+        this(accountId, null, null, null);
+    }
 }
